@@ -3,11 +3,6 @@ from functools import reduce
 
 filename = sys.argv[1] if sys.argv[1] else ""
 
-def add(a, b):
-	return a+b
-def mul(a, b):
-	return a*b
-
 with open(filename, mode="r") as file:
 	
 	lines = [x.removesuffix('\n') for x in file.readlines()]
@@ -34,6 +29,12 @@ with open(filename, mode="r") as file:
 	total = 0
 
 	for line in parsedLines:
+
+		def add(a, b):
+			return a+b
+		def mul(a, b):
+			return a*b
+
 		nums = line[:len(line)-1]
 		op = add if "+" in line[len(line)-1] else mul
 
